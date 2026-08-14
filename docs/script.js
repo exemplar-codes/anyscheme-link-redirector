@@ -29,3 +29,4 @@ document.addEventListener("pointerdown", (event) => {
 });
 
 window.addEventListener("focus", () => input.focus());
+input.focus();
