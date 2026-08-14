@@ -5,6 +5,12 @@ const output = document.querySelector("#redirect-url");
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
+  if (!input.value.trim()) {
+    input.setCustomValidity("Enter a URL.");
+    input.reportValidity();
+    return;
+  }
+
   const link = new URL("redirect/", location.href);
   link.searchParams.set("target", input.value);
   output.textContent = link.toString();
@@ -13,10 +19,18 @@ form.addEventListener("submit", async (event) => {
   input.select();
 });
 
+input.addEventListener("input", () => {
+  input.setCustomValidity("");
+  if (input.value.trim()) return;
+  output.textContent = "";
+  result.hidden = true;
+});
+
 document.addEventListener("keydown", (event) => {
   if (event.key !== "Escape") return;
   event.preventDefault();
   form.reset();
+  input.setCustomValidity("");
   output.textContent = "";
   result.hidden = true;
   input.focus();
