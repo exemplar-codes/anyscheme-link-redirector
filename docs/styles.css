@@ -9,6 +9,11 @@
 
 * { box-sizing: border-box; }
 
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   background: radial-gradient(circle at 75% 15%, #e8ff6514, transparent 25rem), #11110f;
@@ -20,11 +25,16 @@ button, input { font: inherit; }
 .shell {
   min-height: 100svh;
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   place-items: center;
   padding: 32px 20px;
 }
 
-.generator { width: min(640px, 100%); }
+.generator {
+  width: 100%;
+  max-width: 640px;
+  min-width: 0;
+}
 
 .eyebrow {
   display: flex;
@@ -77,6 +87,8 @@ label {
 }
 
 .input-row {
+  width: 100%;
+  min-width: 0;
   padding: 6px;
   border: 1px solid var(--line);
   border-radius: 14px;
@@ -89,7 +101,9 @@ label {
 }
 
 input {
+  width: 100%;
   min-width: 0;
+  max-width: 100%;
   padding: 15px 16px;
   border: 0;
   outline: 0;
@@ -116,6 +130,10 @@ button {
 .redirect-card button:hover { background: #f0ff95; }
 
 .result {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
   margin-top: 16px;
   padding: 15px 18px;
   border: 1px solid #e8ff6540;
@@ -133,6 +151,9 @@ button {
 }
 
 output {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
   display: block;
   overflow: hidden;
   color: #dedbd2;

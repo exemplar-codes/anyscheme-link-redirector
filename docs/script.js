@@ -16,7 +16,7 @@ form.addEventListener("submit", async (event) => {
   output.textContent = link.toString();
   await navigator.clipboard.writeText(link.toString());
   result.hidden = false;
-  input.select();
+  input.focus();
 });
 
 input.addEventListener("input", () => {
