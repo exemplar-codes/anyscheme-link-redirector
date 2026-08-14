@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <title>Opening link… · URL Redirector</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="redirect-card">
+        <div class="eyebrow"><span aria-hidden="true"></span> URL redirector</div>
+        <h1 id="title">Opening your link…</h1>
+        <p id="message">Your browser may ask for permission to open another app.</p>
+        <button type="button" id="open">Open manually</button>
+      </section>
+    </main>
+    <script>
+      const target = new URLSearchParams(location.search).get("target");
+      const button = document.querySelector("#open");
+
+      if (target === null) {
+        document.querySelector("#title").textContent = "No destination";
+        document.querySelector("#message").textContent = "This redirect link does not contain a destination.";
+        button.hidden = true;
+      } else {
+        button.addEventListener("click", () => { location.href = target; });
+        location.href = target;
+      }
+    </script>
+  </body>
+</html>
