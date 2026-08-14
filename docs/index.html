@@ -16,26 +16,20 @@
     <main class="shell">
       <section class="generator" aria-labelledby="page-title">
         <div class="eyebrow"><span aria-hidden="true"></span> URL redirector</div>
-        <h1 id="page-title">Make any URL<br>clickable anywhere.</h1>
-        <p class="intro">Wrap any destination—even a custom app link—in a clean HTTPS URL. Nothing is stored.</p>
+        <h1 id="page-title">Paste a URL.</h1>
+        <p class="intro"><kbd>Enter</kbd> copies the redirect link. <kbd>Esc</kbd> clears.</p>
 
         <form id="generator-form">
-          <label for="destination">Destination URL</label>
+          <label for="destination">URL of any scheme</label>
           <div class="input-row">
             <input id="destination" placeholder="codex://workspace/item?id=123" autocomplete="off" spellcheck="false" autofocus>
-            <button type="submit">Generate link</button>
           </div>
         </form>
 
         <div id="result" class="result" hidden aria-live="polite">
-          <div>
-            <span>Your HTTPS link</span>
-            <output id="redirect-url"></output>
-          </div>
-          <button type="button" id="copy" class="copy">Copy</button>
+          <span>Copied to clipboard</span>
+          <output id="redirect-url"></output>
         </div>
-
-        <p class="privacy"><span aria-hidden="true">◆</span> Generated entirely in your browser</p>
       </section>
     </main>
   </body>
